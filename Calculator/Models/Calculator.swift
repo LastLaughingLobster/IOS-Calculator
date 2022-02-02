@@ -63,11 +63,29 @@ class Calculator: ObservableObject{
                 out = x * y
             case "÷":
                 out = x / y
+            case "AC":
+                pushToValueStack(y)
+                self.displayValue = "0"
+                return
+            case "+-":
+                out = x * -1
+                self.setForOpp = false
+            case "%":
+                out = x * (y / 100)
             default:
-                out = x + y
+                return
         }
         
-        self.displayValue = String(out)
+        let intOut = Int(out)
+        
+        if  out - Double(intOut) != 0
+        {
+            self.displayValue = String(out)
+        }
+        else
+        {
+            self.displayValue = String(intOut)
+        }
         
     }
     
