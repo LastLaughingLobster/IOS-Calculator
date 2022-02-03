@@ -50,7 +50,7 @@ class Calculator: ObservableObject{
     func runOperation() -> Void{
         self.setForOpp = false
         let opp =  operationStack.last
-        let x = valueStack.last!
+        let x = valueStack.last == nil ?  0  : valueStack.last!
         let y = Double(self.displayValue)!
         var out:Double
         

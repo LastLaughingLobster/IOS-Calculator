@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var functions: [Int] =  [Int]()
     @ObservedObject var calculator:Calculator = Calculator()
     
     var body: some View {
@@ -30,102 +29,88 @@ struct ContentView: View {
                 }
                 
                 HStack{
-                    let row:[String] = ["AC", "+-", "%", "÷"]
+                    let row:[ButtonNames] = [.clear, .signal, .percent, .division]
                     ForEach(row, id:  \.self) { name in
                         Button(action: {
-                            calculator.pushToOppStack(name)
+                            calculator.pushToOppStack(name.rawValue)
                             if name != row.last{
                                 calculator.runOperation()
                             }
                         }, label: {
-                            Text("\(name)")
-                                .bold().frame(width: 74, height: 74)
+                            Text("\(name.rawValue)")
+                                .bold().frame(
+                                    width: buttonDiameter(),
+                                    height: buttonDiameter()
+                                )
                                 .font(.system(size: 40))
                                 .foregroundColor(.white)
-                                .background(.orange)
-                                .cornerRadius(37)
+                                .background(name.btnColor)
+                                .cornerRadius(buttonDiameter()/2)
                         })
                     }
                 }
-                HStack{
-                    let row:[String] = ["1", "2", "3", "x"]
-                    ForEach(row, id:  \.self) { name in
-                        Button(action: {
-                            if name == row.last{
-                                calculator.pushToOppStack(name)
-                            }else{
-                                calculator.pushToDisplayValue(name)
-                            }
-                            
-                        }, label: {
-                            Text("\(name)")
-                                .bold().frame(width: 74, height: 74)
-                                .font(.system(size: 40))
-                                .foregroundColor(.white)
-                                .background(name == "x" ? Color.orange : Color.gray)
-                                .cornerRadius(37)
-                        })
+                
+                let rows:[[ButtonNames]] = [
+                    [.one, .two, .three, .multi],
+                    [.four, .five, .six, .minus],
+                    [.seven, .eight, .nine, .plus]
+                ]
+                
+                ForEach(rows, id:  \.self) { row in
+                    HStack{
+                        ForEach(row, id:  \.self) { name in
+                            Button(action: {
+                                if name == row.last{
+                                    calculator.pushToOppStack(name.rawValue)
+                                }else{
+                                    calculator.pushToDisplayValue(name.rawValue)
+                                }
+                                
+                            }, label: {
+                                Text("\(name.rawValue)")
+                                    .bold().frame(
+                                        width: buttonDiameter(),
+                                        height: buttonDiameter()
+                                    )
+                                    .font(.system(size: 40))
+                                    .foregroundColor(.white)
+                                    .background(name.btnColor)
+                                    .cornerRadius(buttonDiameter()/2)
+                            })
+                        }
                     }
                 }
+                
                 HStack{
-                    let row:[String] = ["4", "5", "6", "-"]
-                    ForEach(row, id:  \.self) { name in
-                        Button(action: {
-                            if name == row.last{
-                                calculator.pushToOppStack(name)
-                            }else{
-                                calculator.pushToDisplayValue(name)
-                            }
-                        }, label: {
-                            Text("\(name)")
-                                .bold().frame(width: 74, height: 74)
-                                .font(.system(size: 40))
-                                .foregroundColor(.white)
-                                .background(name == "-" ? Color.orange : Color.gray)
-                                .cornerRadius(37)
-                        })
-                    }
-                }
-                HStack{
-                    let row:[String] = ["7", "8", "9", "+"]
-                    ForEach(row, id:  \.self) { name in
-                        Button(action: {
-                            if name == row.last{
-                                calculator.pushToOppStack(name)
-                            }else{
-                                calculator.pushToDisplayValue(name)
-                            }
-                        }, label: {
-                            Text("\(name)")
-                                .bold().frame(width: 74, height: 74)
-                                .font(.system(size: 40))
-                                .foregroundColor(.white)
-                                .background(name == "+" ? Color.orange : Color.gray)
-                                .cornerRadius(37)
-                        })
-                    }
-                }
-                HStack{
-                    let row:[String] = ["0", ".", "="]
+                    let row:[ButtonNames] = [.zero, .dot, .equals]
                     ForEach(row, id:  \.self) { name in
                         Button(action: {
                             if name == row.last{
                                 calculator.runOperation()
                             }else{
-                                calculator.pushToDisplayValue(name)
+                                calculator.pushToDisplayValue(name.rawValue)
                             }
                         }, label: {
-                            Text("\(name)")
-                                .bold().frame(width: name ==  "0" ? 148 :  74, height: 74)
+                            Text("\(name.rawValue)")
+                                .bold().frame(
+                                    width: name == ButtonNames.zero ?
+                                        (buttonDiameter() * 2) + 10:
+                                        buttonDiameter(),
+                                    height: buttonDiameter()
+                                )
                                 .font(.system(size: 40))
                                 .foregroundColor(.white)
-                                .background(name == "=" ? Color.orange : Color.gray)
-                                .cornerRadius(37)
+                                .background(name.btnColor)
+                                .cornerRadius(buttonDiameter()/2)
                         })
                     }
                 }
             }
         }
+    }
+    
+    func buttonDiameter() -> CGFloat {
+        return (UIScreen.main.bounds.width - (5*8)) / 4
     }
 }
 

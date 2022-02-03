@@ -16,7 +16,7 @@
 		2EFDCA3727AAF24800BB8D35 /* CalculatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFDCA3627AAF24800BB8D35 /* CalculatorUITestsLaunchTests.swift */; };
 		2EFDCA4527AB051400BB8D35 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFDCA4427AB051400BB8D35 /* Functions.swift */; };
 		2EFDCA4927AB076300BB8D35 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFDCA4827AB076300BB8D35 /* Calculator.swift */; };
-		2EFDCA4C27AB0DE400BB8D35 /* ButtonName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFDCA4B27AB0DE400BB8D35 /* ButtonName.swift */; };
+		2EFDCA4C27AB0DE400BB8D35 /* ButtonNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFDCA4B27AB0DE400BB8D35 /* ButtonNames.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,7 @@
 		2EFDCA3627AAF24800BB8D35 /* CalculatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2EFDCA4427AB051400BB8D35 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		2EFDCA4827AB076300BB8D35 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
-		2EFDCA4B27AB0DE400BB8D35 /* ButtonName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonName.swift; sourceTree = "<group>"; };
+		2EFDCA4B27AB0DE400BB8D35 /* ButtonNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNames.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				2EFDCA4A27AB0DBE00BB8D35 /* Enums */,
-				2EFDCA4327AB04F500BB8D35 /* Models */,
+				2EFDCA4327AB04F500BB8D35 /* Classes */,
 				2EFDCA1927AAF24600BB8D35 /* CalculatorApp.swift */,
 				2EFDCA1B27AAF24600BB8D35 /* ContentView.swift */,
 				2EFDCA1D27AAF24700BB8D35 /* Assets.xcassets */,
@@ -135,19 +135,19 @@
 			path = CalculatorUITests;
 			sourceTree = "<group>";
 		};
-		2EFDCA4327AB04F500BB8D35 /* Models */ = {
+		2EFDCA4327AB04F500BB8D35 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				2EFDCA4427AB051400BB8D35 /* Functions.swift */,
 				2EFDCA4827AB076300BB8D35 /* Calculator.swift */,
 			);
-			path = Models;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		2EFDCA4A27AB0DBE00BB8D35 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				2EFDCA4B27AB0DE400BB8D35 /* ButtonName.swift */,
+				2EFDCA4B27AB0DE400BB8D35 /* ButtonNames.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -286,7 +286,7 @@
 				2EFDCA1A27AAF24600BB8D35 /* CalculatorApp.swift in Sources */,
 				2EFDCA4927AB076300BB8D35 /* Calculator.swift in Sources */,
 				2EFDCA4527AB051400BB8D35 /* Functions.swift in Sources */,
-				2EFDCA4C27AB0DE400BB8D35 /* ButtonName.swift in Sources */,
+				2EFDCA4C27AB0DE400BB8D35 /* ButtonNames.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
