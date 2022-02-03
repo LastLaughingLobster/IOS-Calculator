@@ -22,9 +22,9 @@ struct ContentView: View {
                     Spacer()
                     Text("\(calculator.displayValue)")
                         .bold()
-                        .font(.system(size: 54))
+                        .font(.system(size: 75))
                         .foregroundColor(.white)
-                        .padding(.trailing, 15.0)
+                        .padding(15.0)
                     
                 }
                 

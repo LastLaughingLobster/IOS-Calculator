@@ -52,7 +52,7 @@ class Calculator: ObservableObject{
         let opp =  operationStack.last
         let x = valueStack.last == nil ?  0  : valueStack.last!
         let y = Double(self.displayValue)!
-        var out:Double
+        var out:Double = 0.0
         
         switch opp{
             case "+":
@@ -62,7 +62,11 @@ class Calculator: ObservableObject{
             case "x", "X":
                 out = x * y
             case "÷":
-                out = x / y
+                if y != 0.0{
+                    out = x / y
+                }else{
+                    out = y
+                }
             case "AC":
                 pushToValueStack(y)
                 self.displayValue = "0"
